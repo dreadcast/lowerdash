@@ -26,8 +26,8 @@ My mixins for Lodash, formerly known as hidash.
 
 ### Array & Object
 
-* eachAsync (Array, Object)
-* eachDelayed (Array, Object)
+* eachAsync
+* eachDelayed
 
 
 ### Deeper
