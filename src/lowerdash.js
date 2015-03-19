@@ -147,6 +147,13 @@
 		/**
 		 *	Utils
 		 */
+		/**
+		 *	Lax isEqual, arrays are sorted and unique'd
+		 *	@method isLaxEqual
+		 *	@param {Mixed} a			Value to compare
+		 *	@param {Mixed} b			Value to be compared
+		 *	@return {Boolean}			Lax equality
+		 */
 		isLaxEqual: function(a, b){
 			if(_.isArray(a))
 				a = _.uniq(a.sort());
@@ -157,22 +164,32 @@
 			return _.isEqual(a, b);
 		},
 		
+		/*
+		 *	Checks if passed argument is an iterable object, not an array or a function
+		 *	@method isIterable
+		 *	@param {Mixed} was			Object to be checked
+		 *	@return {Boolean}			was is iterable
+		 */
 		isIterable: function(was){
 			return _.isObject(was) && !_.isFunction(was) && !_.isArray(was);
 		},
 		
+		/*
+		 *	Checks if passed string is a JSON encoded object
+		 *	@method isJson
+		 *	@param {String} was			String that must test the JSON validity
+		 *	@return {Boolean}			was is a valid JSON
+		 */
 		isJson: function(was){
 			return _.isString(was) && _.isObject(JSON.parse(was));
 		},
 		
-		isClass: function(obj){
-			return obj.name == 'Class';
-		},
-		
-		isInstance: function(obj){
-			return obj.constructor.name == 'Class';			
-		},
-		
+		/*
+		 *	Checks if passed argument is shit (<code>null, 'null', undefined, '', false, 'false', 0, '0'</code>)
+		 *	@method isShit
+		 *	@param {Mixed} was			Object to test shitiness
+		 *	@return {Boolean}			was is shit
+		 */
 		isShit: function(was){
 			if(_.isArray(was) && _compact(was).length == 0)
 				return true;
@@ -180,6 +197,18 @@
 			return _.contains([null, 'null', undefined, '', false, 'false', 0, '0'], was);
 		},
 	
+		/**
+		 *	Invoke passed iterator on each passed array entry
+		 *	All iterations are concurrents
+		 *	@method eachParallel
+		 *	@param {Object} obj			Object or array.
+		 *	@param {Function} iterator	Iterator, invoked on each entry.
+		 *								Passed arguments are <code>item</code>, <code>index</code>,
+		 								<code>key</code> (if passed object is iterable),
+		 								<code>cursor</code> and passed <code>arr</code>.
+		 *	@param {Function} [cb]		Callback invoked when last iteration is done.
+		 *	@param {Object} [bind]	 	Object bound to iterator, default to passed <code>arr</code>.
+		 */
 		eachParallel: function(arr, iterator, cb, bind){
 			var stepsToGo = arr.length,
 				cursor = function(){
@@ -204,18 +233,20 @@
 		 *	Wait <code>next</code> n ms to call next iteration. Alias: eachInterval
 		 *	@method eachDelayed
 		 *	@param {Object} obj			Object or array.
-		 *	@param {Function} iterator	Iterator, called <code>this.length</code> times.
-		 *								Passed arguments are <code>item</code>, <code>index</code>, <code>cursor</code> and <code>Array</code> instance.
-		 *	@param {Function} [cb]		Callback executed after last iteration.
+		 *	@param {Function} iterator	Iterator, invoked on each entry.
+		 *								Passed arguments are <code>item</code>, <code>key</code> (if passed object is iterable),
+		 								<code>index</code>, <code>cursor</code> and passed <code>arr</code>.
+		 *	@param {Function} [cb]		Callback invoked after last iteration.
 		 *	@param {Function} [delay]	Delay between each iteration.
-		 *	@param {Object} [bind]	 	Object bound to iterator, default to <code>this</code> instance.
-		 *	@return {Array} this		Array instance
+		 *	@param {Object} [bind]	 	Object bound to iterator, default to passed <code>arr</code>.
+		 *	@return {Object} arr		Passed object
+		 *	@alias	eachInterval
 		 */
 		eachDelayed: function(arr, iterator, cb, delay, bind){
 			return _.eachAsync(arr, function(){
 				setTimeout(function(){
 					iterator.apply(this, arguments);
-				}, delay);
+				}.bind(bind || this), delay);
 			}, cb, bind);
 		},
 		
@@ -225,11 +256,12 @@
 		 *	Wait <code>next</code> cursor to be called before next iteration
 		 *	@method eachAsync
 		 *	@param {Object} obj			Object or array.
-		 *	@param {Function} iterator	Iterator, called <code>this.length</code> times.
-		 *								Passed arguments are <code>item</code>, <code>key</code> (if provided obj is an Object), <code>index</code>, <code>cursor</code> and <code>Array</code> instance.
-		 *	@param {Function} [cb]		Callback executed after last iteration.
-		 *	@param {Object} [bind]	 	Object bound to iterator, default to <code>this</code> instance.
-		 *	@return {Array} this		Array instance
+		 *	@param {Function} iterator	Iterator, invoked on each entry.
+		 *								Passed arguments are <code>item</code>, <code>key</code> (if passed obj is iterable),
+		 								<code>index</code>, <code>cursor</code> and passed <code>arr</code>.
+		 *	@param {Function} [cb]		Callback invoked after last iteration.
+		 *	@param {Object} [bind]	 	Object bound to iterator, default to passed <code>arr</code>.
+		 *	@return {Object} arr		Passed object
 		 *	@example
 		 *		_.eachAsync([1, 2, 3, 4], function(item, index, cursor, ar){
 		 *			new Request({
