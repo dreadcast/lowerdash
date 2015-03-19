@@ -1,0 +1,384 @@
+{
+    "project": {
+        "theme": "simple",
+        "name": "Lowerdash API",
+        "description": "Lowerdash is a set of mixins for lodash.",
+        "url": "https://github.com/dreadcast/lowerdash",
+        "version": "0.2.2"
+    },
+    "files": {
+        "src/lowerdash.js": {
+            "name": "src/lowerdash.js",
+            "modules": {
+                "Lodash": 1
+            },
+            "classes": {
+                "Lowerdash": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {
+        "Lodash": {
+            "name": "Lodash",
+            "submodules": {},
+            "classes": {
+                "Lowerdash": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src/lowerdash.js",
+            "line": 2,
+            "description": "Useful mixins for Lodash"
+        }
+    },
+    "classes": {
+        "Lowerdash": {
+            "name": "Lowerdash",
+            "shortname": "Lowerdash",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Lodash",
+            "file": "src/lowerdash.js",
+            "line": 2,
+            "description": "Useful mixins for Lodash",
+            "static": 1
+        }
+    },
+    "classitems": [
+        {
+            "file": "src/lowerdash.js",
+            "line": 19,
+            "description": "Creates an array containing passed argument or return argument if it is already an array.",
+            "itemtype": "method",
+            "name": "from",
+            "return": {
+                "description": "Created or existing array",
+                "type": "Array"
+            },
+            "class": "Lowerdash",
+            "module": "Lodash"
+        },
+        {
+            "file": "src/lowerdash.js",
+            "line": 31,
+            "description": "Returns penultimate item from an array or null if array contains less than 2 items",
+            "itemtype": "method",
+            "name": "penultimate",
+            "params": [
+                {
+                    "name": "obj",
+                    "description": "Object or array to get penultimate item from",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "Penultimate item from provided array",
+                "type": "Mixed"
+            },
+            "class": "Lowerdash",
+            "module": "Lodash"
+        },
+        {
+            "file": "src/lowerdash.js",
+            "line": 41,
+            "description": "Joins items from an array with a different glue before last item",
+            "itemtype": "method",
+            "name": "joinLast",
+            "params": [
+                {
+                    "name": "obj",
+                    "description": "Array to join",
+                    "type": "Array"
+                },
+                {
+                    "name": "glue",
+                    "description": "Items delimiter",
+                    "type": "String"
+                },
+                {
+                    "name": "stick",
+                    "description": "Delimiter before last item",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "Joined array",
+                "type": "String"
+            },
+            "class": "Lowerdash",
+            "module": "Lodash"
+        },
+        {
+            "file": "src/lowerdash.js",
+            "line": 55,
+            "description": "Get property from object following provided path",
+            "itemtype": "method",
+            "name": "getFromPath",
+            "params": [
+                {
+                    "name": "obj",
+                    "description": "Object to get property from",
+                    "type": "Object"
+                },
+                {
+                    "name": "path",
+                    "description": "Path to property (Dot-delimited)",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "Property",
+                "type": "Mixed"
+            },
+            "class": "Lowerdash",
+            "module": "Lodash"
+        },
+        {
+            "file": "src/lowerdash.js",
+            "line": 76,
+            "description": "Set property of object following provided path",
+            "itemtype": "method",
+            "name": "setFromPath",
+            "params": [
+                {
+                    "name": "obj",
+                    "description": "Destination object",
+                    "type": "Object"
+                },
+                {
+                    "name": "path",
+                    "description": "Path to property",
+                    "type": "String"
+                },
+                {
+                    "name": "value",
+                    "description": "Property value",
+                    "type": "Mixed"
+                }
+            ],
+            "return": {
+                "description": "Object",
+                "type": "Object"
+            },
+            "class": "Lowerdash",
+            "module": "Lodash"
+        },
+        {
+            "file": "src/lowerdash.js",
+            "line": 103,
+            "description": "Removes property of object following provided path",
+            "itemtype": "method",
+            "name": "eraseFromPath",
+            "params": [
+                {
+                    "name": "obj",
+                    "description": "Object to remove property from",
+                    "type": "Object"
+                },
+                {
+                    "name": "path",
+                    "description": "Path to property",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "Object",
+                "type": "Object"
+            },
+            "class": "Lowerdash",
+            "module": "Lodash"
+        },
+        {
+            "file": "src/lowerdash.js",
+            "line": 132,
+            "description": "Retrieve object's key paired to given property",
+            "itemtype": "method",
+            "name": "keyOf",
+            "params": [
+                {
+                    "name": "obj",
+                    "description": "Object to get key from",
+                    "type": "Object"
+                },
+                {
+                    "name": "value",
+                    "description": "Value corresponding to key",
+                    "type": "Mixed"
+                }
+            ],
+            "return": {
+                "description": "Key or null if no key was found",
+                "type": "String"
+            },
+            "class": "Lowerdash",
+            "module": "Lodash"
+        },
+        {
+            "file": "src/lowerdash.js",
+            "line": 147,
+            "description": "Utils",
+            "class": "Lowerdash",
+            "module": "Lodash"
+        },
+        {
+            "file": "src/lowerdash.js",
+            "line": 203,
+            "description": "Wait <code>next</code> n ms to call next iteration. Alias: eachInterval",
+            "itemtype": "method",
+            "name": "eachDelayed",
+            "params": [
+                {
+                    "name": "obj",
+                    "description": "Object or array.",
+                    "type": "Object"
+                },
+                {
+                    "name": "iterator",
+                    "description": "Iterator, called <code>this.length</code> times.\n\t\t\t\t\t\t\tPassed arguments are <code>item</code>, <code>index</code>, <code>cursor</code> and <code>Array</code> instance.",
+                    "type": "Function"
+                },
+                {
+                    "name": "cb",
+                    "description": "Callback executed after last iteration.",
+                    "type": "Function",
+                    "optional": true
+                },
+                {
+                    "name": "delay",
+                    "description": "Delay between each iteration.",
+                    "type": "Function",
+                    "optional": true
+                },
+                {
+                    "name": "bind",
+                    "description": "Object bound to iterator, default to <code>this</code> instance.",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "this\t\tArray instance",
+                "type": "Array"
+            },
+            "class": "Lowerdash",
+            "module": "Lodash"
+        },
+        {
+            "file": "src/lowerdash.js",
+            "line": 224,
+            "description": "Wait <code>next</code> cursor to be called before next iteration",
+            "itemtype": "method",
+            "name": "eachAsync",
+            "params": [
+                {
+                    "name": "obj",
+                    "description": "Object or array.",
+                    "type": "Object"
+                },
+                {
+                    "name": "iterator",
+                    "description": "Iterator, called <code>this.length</code> times.\n\t\t\t\t\t\t\tPassed arguments are <code>item</code>, <code>key</code> (if provided obj is an Object), <code>index</code>, <code>cursor</code> and <code>Array</code> instance.",
+                    "type": "Function"
+                },
+                {
+                    "name": "cb",
+                    "description": "Callback executed after last iteration.",
+                    "type": "Function",
+                    "optional": true
+                },
+                {
+                    "name": "bind",
+                    "description": "Object bound to iterator, default to <code>this</code> instance.",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "this\t\tArray instance",
+                "type": "Array"
+            },
+            "example": [
+                "\n\t_.eachAsync([1, 2, 3, 4], function(item, index, cursor, ar){\n\t\tnew Request({\n\t\t\turl: '/rest/' + index,\n\t\t\tonSuccess: function(){\n\t\t\t\tconsole.info('item #' + index + ' posted');\n\t\t\t\tcursor();\n\t\t\t}\n\t\t}).post();\n\t}, function(){ console.info('complete'); })\n\n\t// Works with an array of functions...\n\t_.eachAsync([function(cursor){\n\t\tnew Request({\n\t\t\turl: '/some/url/123',\n\t\t\tonSuccess: cursor\n\t\t}).get();\n\t}, function(cursor){\n\t\tnew Request({\n\t\t\turl: '/some/url/456',\n\t\t\tonSuccess: cursor\n\t\t}).get();\n\t}], function(item, index, cursor, ar){\n\t\titem(cursor);\n\t});"
+            ],
+            "class": "Lowerdash",
+            "module": "Lodash"
+        },
+        {
+            "file": "src/lowerdash.js",
+            "line": 299,
+            "description": "Find value closest to given number in an array of numbers",
+            "itemtype": "method",
+            "name": "closest",
+            "return": {
+                "description": "Closest value",
+                "type": "Number"
+            },
+            "class": "Lowerdash",
+            "module": "Lodash"
+        },
+        {
+            "file": "src/lowerdash.js",
+            "line": 329,
+            "description": "Replace item at index i with given item",
+            "itemtype": "method",
+            "name": "replaceAt",
+            "return": {
+                "description": "Array instance",
+                "type": "Array"
+            },
+            "class": "Lowerdash",
+            "module": "Lodash"
+        },
+        {
+            "file": "src/lowerdash.js",
+            "line": 340,
+            "description": "Insert item at index i",
+            "itemtype": "method",
+            "name": "insertAt",
+            "return": {
+                "description": "Array instance",
+                "type": "Array"
+            },
+            "class": "Lowerdash",
+            "module": "Lodash"
+        },
+        {
+            "file": "src/lowerdash.js",
+            "line": 351,
+            "description": "Attempts to execute function, return false if fails",
+            "itemtype": "method",
+            "name": "attempt",
+            "params": [
+                {
+                    "name": "fn",
+                    "description": "Function to execute",
+                    "type": "Function"
+                },
+                {
+                    "name": "arguments",
+                    "description": "Arguments to pass to function",
+                    "type": "Mixed",
+                    "multiple": true
+                }
+            ],
+            "return": {
+                "description": "Function result or false",
+                "type": "Mixed"
+            },
+            "class": "Lowerdash",
+            "module": "Lodash"
+        }
+    ],
+    "warnings": [
+        {
+            "message": "Missing item type\nUtils",
+            "line": " src/lowerdash.js:147"
+        }
+    ]
+}
