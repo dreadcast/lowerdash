@@ -1,0 +1,19 @@
+{
+	"name": "lowerdash",
+	"version": "0.2.1",
+	"homepage": "https://github.com/dreadcast/lowerdash",
+	"description": "Useful mixins for Lo-Dash, formerly hidash",
+	"author": "Raphael Gully",
+	"repository": {
+		"type": "git",
+		"url": "git@github.com:dreadcast/lowerdash.git"
+	},
+	"ignore": [
+		".jshintrc",
+		"**/*.txt"
+	],
+	"dependencies": {
+		"lodash": "3.5.0"
+	},
+	"main": "dist/lowerdash.js"
+}
