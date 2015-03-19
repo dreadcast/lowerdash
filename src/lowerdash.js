@@ -1,7 +1,7 @@
 ;(function(root){
 	/**
 	 * Useful mixins for Lodash
-	 * @Class Hidash
+	 * @Class Lowerdash
 	 * @Module Lodash
 	 * @static
 	 */
