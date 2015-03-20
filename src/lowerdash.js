@@ -6,7 +6,7 @@
 	 * @static
 	 */
 	if(typeof require == 'function'){
-		var _ = require('lodash');		
+		var _ = require('lodash').runInContext();		
 		
 		if(typeof exports !== 'undefined' && typeof module !== 'undefined' && module.exports)
 			module.exports = _;
@@ -126,8 +126,6 @@
 			
 			return cl;
 		},
-		
-		deepmerge: _.merge,
 		
 		/**
 		 *	Retrieve object's key paired to given property 
@@ -249,8 +247,6 @@
 				}.bind(bind || this), delay);
 			}, cb, bind);
 		},
-		
-		eachInterval: _.eachDelayed,
 		
 		/**
 		 *	Wait <code>next</code> cursor to be called before next iteration
@@ -398,4 +394,10 @@
 			}
 		}
 	});
+	
+	_.mixin({
+		eachInterval: _.eachDelayed,
+		gluten: _.joinLast
+	});
+	
 })(Function('return this')());
