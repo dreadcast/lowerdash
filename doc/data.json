@@ -228,7 +228,65 @@
         },
         {
             "file": "src/lowerdash.js",
-            "line": 203,
+            "line": 150,
+            "description": "Lax isEqual, arrays are sorted and unique'd",
+            "itemtype": "method",
+            "name": "isLaxEqual",
+            "params": [
+                {
+                    "name": "a",
+                    "description": "Value to compare",
+                    "type": "Mixed"
+                },
+                {
+                    "name": "b",
+                    "description": "Value to be compared",
+                    "type": "Mixed"
+                }
+            ],
+            "return": {
+                "description": "Lax equality",
+                "type": "Boolean"
+            },
+            "class": "Lowerdash",
+            "module": "Lodash"
+        },
+        {
+            "file": "src/lowerdash.js",
+            "line": 200,
+            "description": "Invoke passed iterator on each passed array entry\nAll iterations are concurrents",
+            "itemtype": "method",
+            "name": "eachParallel",
+            "params": [
+                {
+                    "name": "obj",
+                    "description": "Object or array.",
+                    "type": "Object"
+                },
+                {
+                    "name": "iterator",
+                    "description": "Iterator, invoked on each entry.\n\t\t\t\t\t\t\tPassed arguments are <code>item</code>, <code>index</code>,\n\t \t\t\t\t\t\t\t\t<code>key</code> (if passed object is iterable),\n\t \t\t\t\t\t\t\t\t<code>cursor</code> and passed <code>arr</code>.",
+                    "type": "Function"
+                },
+                {
+                    "name": "cb",
+                    "description": "Callback invoked when last iteration is done.",
+                    "type": "Function",
+                    "optional": true
+                },
+                {
+                    "name": "bind",
+                    "description": "Object bound to iterator, default to passed <code>arr</code>.",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "class": "Lowerdash",
+            "module": "Lodash"
+        },
+        {
+            "file": "src/lowerdash.js",
+            "line": 232,
             "description": "Wait <code>next</code> n ms to call next iteration. Alias: eachInterval",
             "itemtype": "method",
             "name": "eachDelayed",
@@ -240,12 +298,12 @@
                 },
                 {
                     "name": "iterator",
-                    "description": "Iterator, called <code>this.length</code> times.\n\t\t\t\t\t\t\tPassed arguments are <code>item</code>, <code>index</code>, <code>cursor</code> and <code>Array</code> instance.",
+                    "description": "Iterator, invoked on each entry.\n\t\t\t\t\t\t\tPassed arguments are <code>item</code>, <code>key</code> (if passed object is iterable),\n\t \t\t\t\t\t\t\t\t<code>index</code>, <code>cursor</code> and passed <code>arr</code>.",
                     "type": "Function"
                 },
                 {
                     "name": "cb",
-                    "description": "Callback executed after last iteration.",
+                    "description": "Callback invoked after last iteration.",
                     "type": "Function",
                     "optional": true
                 },
@@ -257,21 +315,22 @@
                 },
                 {
                     "name": "bind",
-                    "description": "Object bound to iterator, default to <code>this</code> instance.",
+                    "description": "Object bound to iterator, default to passed <code>arr</code>.",
                     "type": "Object",
                     "optional": true
                 }
             ],
             "return": {
-                "description": "this\t\tArray instance",
-                "type": "Array"
+                "description": "arr\t\tPassed object",
+                "type": "Object"
             },
+            "alias": "eachInterval",
             "class": "Lowerdash",
             "module": "Lodash"
         },
         {
             "file": "src/lowerdash.js",
-            "line": 224,
+            "line": 255,
             "description": "Wait <code>next</code> cursor to be called before next iteration",
             "itemtype": "method",
             "name": "eachAsync",
@@ -283,25 +342,25 @@
                 },
                 {
                     "name": "iterator",
-                    "description": "Iterator, called <code>this.length</code> times.\n\t\t\t\t\t\t\tPassed arguments are <code>item</code>, <code>key</code> (if provided obj is an Object), <code>index</code>, <code>cursor</code> and <code>Array</code> instance.",
+                    "description": "Iterator, invoked on each entry.\n\t\t\t\t\t\t\tPassed arguments are <code>item</code>, <code>key</code> (if passed obj is iterable),\n\t \t\t\t\t\t\t\t\t<code>index</code>, <code>cursor</code> and passed <code>arr</code>.",
                     "type": "Function"
                 },
                 {
                     "name": "cb",
-                    "description": "Callback executed after last iteration.",
+                    "description": "Callback invoked after last iteration.",
                     "type": "Function",
                     "optional": true
                 },
                 {
                     "name": "bind",
-                    "description": "Object bound to iterator, default to <code>this</code> instance.",
+                    "description": "Object bound to iterator, default to passed <code>arr</code>.",
                     "type": "Object",
                     "optional": true
                 }
             ],
             "return": {
-                "description": "this\t\tArray instance",
-                "type": "Array"
+                "description": "arr\t\tPassed object",
+                "type": "Object"
             },
             "example": [
                 "\n\t_.eachAsync([1, 2, 3, 4], function(item, index, cursor, ar){\n\t\tnew Request({\n\t\t\turl: '/rest/' + index,\n\t\t\tonSuccess: function(){\n\t\t\t\tconsole.info('item #' + index + ' posted');\n\t\t\t\tcursor();\n\t\t\t}\n\t\t}).post();\n\t}, function(){ console.info('complete'); })\n\n\t// Works with an array of functions...\n\t_.eachAsync([function(cursor){\n\t\tnew Request({\n\t\t\turl: '/some/url/123',\n\t\t\tonSuccess: cursor\n\t\t}).get();\n\t}, function(cursor){\n\t\tnew Request({\n\t\t\turl: '/some/url/456',\n\t\t\tonSuccess: cursor\n\t\t}).get();\n\t}], function(item, index, cursor, ar){\n\t\titem(cursor);\n\t});"
@@ -311,7 +370,7 @@
         },
         {
             "file": "src/lowerdash.js",
-            "line": 299,
+            "line": 331,
             "description": "Find value closest to given number in an array of numbers",
             "itemtype": "method",
             "name": "closest",
@@ -324,7 +383,7 @@
         },
         {
             "file": "src/lowerdash.js",
-            "line": 329,
+            "line": 361,
             "description": "Replace item at index i with given item",
             "itemtype": "method",
             "name": "replaceAt",
@@ -337,7 +396,7 @@
         },
         {
             "file": "src/lowerdash.js",
-            "line": 340,
+            "line": 372,
             "description": "Insert item at index i",
             "itemtype": "method",
             "name": "insertAt",
@@ -350,7 +409,7 @@
         },
         {
             "file": "src/lowerdash.js",
-            "line": 351,
+            "line": 383,
             "description": "Attempts to execute function, return false if fails",
             "itemtype": "method",
             "name": "attempt",
@@ -376,6 +435,10 @@
         }
     ],
     "warnings": [
+        {
+            "message": "unknown tag: alias",
+            "line": " src/lowerdash.js:232"
+        },
         {
             "message": "Missing item type\nUtils",
             "line": " src/lowerdash.js:147"

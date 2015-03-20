@@ -127,6 +127,10 @@
 
                             </li>
                             <li class="index-item method">
+                                <a href="#method_eachParallel">eachParallel</a>
+
+                            </li>
+                            <li class="index-item method">
                                 <a href="#method_eraseFromPath">eraseFromPath</a>
 
                             </li>
@@ -140,6 +144,10 @@
                             </li>
                             <li class="index-item method">
                                 <a href="#method_insertAt">insertAt</a>
+
+                            </li>
+                            <li class="index-item method">
+                                <a href="#method_isLaxEqual">isLaxEqual</a>
 
                             </li>
                             <li class="index-item method">
@@ -199,7 +207,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_lowerdash.js.html#l351"><code>src&#x2F;lowerdash.js:351</code></a>
+        <a href="../files/src_lowerdash.js.html#l383"><code>src&#x2F;lowerdash.js:383</code></a>
         </p>
 
 
@@ -271,7 +279,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_lowerdash.js.html#l299"><code>src&#x2F;lowerdash.js:299</code></a>
+        <a href="../files/src_lowerdash.js.html#l331"><code>src&#x2F;lowerdash.js:331</code></a>
         </p>
 
 
@@ -317,7 +325,7 @@
         </div>
 
         <span class="returns-inline">
-            <span class="type">Array</span>
+            <span class="type">Object</span>
         </span>
 
 
@@ -329,7 +337,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_lowerdash.js.html#l224"><code>src&#x2F;lowerdash.js:224</code></a>
+        <a href="../files/src_lowerdash.js.html#l255"><code>src&#x2F;lowerdash.js:255</code></a>
         </p>
 
 
@@ -362,8 +370,9 @@
 
 
                     <div class="param-description">
-                        <p>Iterator, called <code>this.length</code> times.
-                            Passed arguments are <code>item</code>, <code>key</code> (if provided obj is an Object), <code>index</code>, <code>cursor</code> and <code>Array</code> instance.</p>
+                        <p>Iterator, invoked on each entry.
+                            Passed arguments are <code>item</code>, <code>key</code> (if passed obj is iterable),
+                                     <code>index</code>, <code>cursor</code> and passed <code>arr</code>.</p>
 
                     </div>
 
@@ -375,7 +384,7 @@
 
 
                     <div class="param-description">
-                        <p>Callback executed after last iteration.</p>
+                        <p>Callback invoked after last iteration.</p>
 
                     </div>
 
@@ -387,7 +396,7 @@
 
 
                     <div class="param-description">
-                        <p>Object bound to iterator, default to <code>this</code> instance.</p>
+                        <p>Object bound to iterator, default to passed <code>arr</code>.</p>
 
                     </div>
 
@@ -399,8 +408,8 @@
             <h4>Returns:</h4>
 
             <div class="returns-description">
-                        <span class="type">Array</span>:
-                    <p>this        Array instance</p>
+                        <span class="type">Object</span>:
+                    <p>arr        Passed object</p>
 
             </div>
         </div>
@@ -462,7 +471,7 @@ _.eachAsync([function(cursor){
         </div>
 
         <span class="returns-inline">
-            <span class="type">Array</span>
+            <span class="type">Object</span>
         </span>
 
 
@@ -474,7 +483,7 @@ _.eachAsync([function(cursor){
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_lowerdash.js.html#l203"><code>src&#x2F;lowerdash.js:203</code></a>
+        <a href="../files/src_lowerdash.js.html#l232"><code>src&#x2F;lowerdash.js:232</code></a>
         </p>
 
 
@@ -507,8 +516,9 @@ _.eachAsync([function(cursor){
 
 
                     <div class="param-description">
-                        <p>Iterator, called <code>this.length</code> times.
-                            Passed arguments are <code>item</code>, <code>index</code>, <code>cursor</code> and <code>Array</code> instance.</p>
+                        <p>Iterator, invoked on each entry.
+                            Passed arguments are <code>item</code>, <code>key</code> (if passed object is iterable),
+                                     <code>index</code>, <code>cursor</code> and passed <code>arr</code>.</p>
 
                     </div>
 
@@ -520,7 +530,7 @@ _.eachAsync([function(cursor){
 
 
                     <div class="param-description">
-                        <p>Callback executed after last iteration.</p>
+                        <p>Callback invoked after last iteration.</p>
 
                     </div>
 
@@ -544,7 +554,7 @@ _.eachAsync([function(cursor){
 
 
                     <div class="param-description">
-                        <p>Object bound to iterator, default to <code>this</code> instance.</p>
+                        <p>Object bound to iterator, default to passed <code>arr</code>.</p>
 
                     </div>
 
@@ -556,11 +566,113 @@ _.eachAsync([function(cursor){
             <h4>Returns:</h4>
 
             <div class="returns-description">
-                        <span class="type">Array</span>:
-                    <p>this        Array instance</p>
+                        <span class="type">Object</span>:
+                    <p>arr        Passed object</p>
 
             </div>
         </div>
+
+
+</div>
+<div id="method_eachParallel" class="method item">
+    <h3 class="name"><code>eachParallel</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>obj</code>
+                </li>
+                <li class="arg">
+                        <code>iterator</code>
+                </li>
+                <li class="arg">
+                        <code class="optional">[cb]</code>
+                </li>
+                <li class="arg">
+                        <code class="optional">[bind]</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_lowerdash.js.html#l200"><code>src&#x2F;lowerdash.js:200</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Invoke passed iterator on each passed array entry
+All iterations are concurrents</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">obj</code>
+                        <span class="type">Object</span>
+
+
+                    <div class="param-description">
+                        <p>Object or array.</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">iterator</code>
+                        <span class="type">Function</span>
+
+
+                    <div class="param-description">
+                        <p>Iterator, invoked on each entry.
+                            Passed arguments are <code>item</code>, <code>index</code>,
+                                     <code>key</code> (if passed object is iterable),
+                                     <code>cursor</code> and passed <code>arr</code>.</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name optional">[cb]</code>
+                        <span class="type">Function</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+
+
+                    <div class="param-description">
+                        <p>Callback invoked when last iteration is done.</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name optional">[bind]</code>
+                        <span class="type">Object</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+
+
+                    <div class="param-description">
+                        <p>Object bound to iterator, default to passed <code>arr</code>.</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
 
 
 </div>
@@ -785,7 +897,7 @@ _.eachAsync([function(cursor){
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_lowerdash.js.html#l340"><code>src&#x2F;lowerdash.js:340</code></a>
+        <a href="../files/src_lowerdash.js.html#l372"><code>src&#x2F;lowerdash.js:372</code></a>
         </p>
 
 
@@ -804,6 +916,86 @@ _.eachAsync([function(cursor){
             <div class="returns-description">
                         <span class="type">Array</span>:
                     <p>Array instance</p>
+
+            </div>
+        </div>
+
+
+</div>
+<div id="method_isLaxEqual" class="method item">
+    <h3 class="name"><code>isLaxEqual</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>a</code>
+                </li>
+                <li class="arg">
+                        <code>b</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type">Boolean</span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_lowerdash.js.html#l150"><code>src&#x2F;lowerdash.js:150</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Lax isEqual, arrays are sorted and unique&#39;d</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">a</code>
+                        <span class="type">Mixed</span>
+
+
+                    <div class="param-description">
+                        <p>Value to compare</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">b</code>
+                        <span class="type">Mixed</span>
+
+
+                    <div class="param-description">
+                        <p>Value to be compared</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type">Boolean</span>:
+                    <p>Lax equality</p>
 
             </div>
         </div>
@@ -1068,7 +1260,7 @@ _.eachAsync([function(cursor){
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_lowerdash.js.html#l329"><code>src&#x2F;lowerdash.js:329</code></a>
+        <a href="../files/src_lowerdash.js.html#l361"><code>src&#x2F;lowerdash.js:361</code></a>
         </p>
 
 
