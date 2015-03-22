@@ -47,10 +47,21 @@ Set/get/erase Object properties from path
 npm install lowerdash
 ```
 
+Then in your scripts:
+```javascript
+var _ = require('lowerdash');
+```
+
 
 ### Browser environment
 ```
 bower install lowerdash
+```
+
+Then include these files into your documents
+```html
+<script src="bower_components/lowerdash/dist/lowerdash.js"></script>
+<script src="bower_components/lodash/dist/lodash.js"></script>
 ```
 
 ## Documentation ##

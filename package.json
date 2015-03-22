@@ -19,5 +19,5 @@
 	"devDependencies": {
 		"gulp": "3.8.11"
 	},
-	"main": "dist/lowerdash.js"
+	"main": "src/lowerdash.js"
 }
