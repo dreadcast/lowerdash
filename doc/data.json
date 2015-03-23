@@ -4,7 +4,7 @@
         "name": "Lowerdash API",
         "description": "Lowerdash is a set of mixins for lodash.",
         "url": "https://github.com/dreadcast/lowerdash",
-        "version": "0.2.3"
+        "version": "0.2.4"
     },
     "files": {
         "src/lowerdash.js": {
@@ -196,7 +196,7 @@
         },
         {
             "file": "src/lowerdash.js",
-            "line": 132,
+            "line": 130,
             "description": "Retrieve object's key paired to given property",
             "itemtype": "method",
             "name": "keyOf",
@@ -221,14 +221,14 @@
         },
         {
             "file": "src/lowerdash.js",
-            "line": 147,
+            "line": 145,
             "description": "Utils",
             "class": "Lowerdash",
             "module": "Lodash"
         },
         {
             "file": "src/lowerdash.js",
-            "line": 150,
+            "line": 148,
             "description": "Lax isEqual, arrays are sorted and unique'd",
             "itemtype": "method",
             "name": "isLaxEqual",
@@ -253,7 +253,7 @@
         },
         {
             "file": "src/lowerdash.js",
-            "line": 200,
+            "line": 198,
             "description": "Invoke passed iterator on each passed array entry\nAll iterations are concurrents",
             "itemtype": "method",
             "name": "eachParallel",
@@ -286,7 +286,7 @@
         },
         {
             "file": "src/lowerdash.js",
-            "line": 232,
+            "line": 230,
             "description": "Wait <code>next</code> n ms to call next iteration. Alias: eachInterval",
             "itemtype": "method",
             "name": "eachDelayed",
@@ -330,7 +330,7 @@
         },
         {
             "file": "src/lowerdash.js",
-            "line": 255,
+            "line": 251,
             "description": "Wait <code>next</code> cursor to be called before next iteration",
             "itemtype": "method",
             "name": "eachAsync",
@@ -370,7 +370,7 @@
         },
         {
             "file": "src/lowerdash.js",
-            "line": 331,
+            "line": 327,
             "description": "Find value closest to given number in an array of numbers",
             "itemtype": "method",
             "name": "closest",
@@ -383,7 +383,7 @@
         },
         {
             "file": "src/lowerdash.js",
-            "line": 361,
+            "line": 357,
             "description": "Replace item at index i with given item",
             "itemtype": "method",
             "name": "replaceAt",
@@ -396,7 +396,7 @@
         },
         {
             "file": "src/lowerdash.js",
-            "line": 372,
+            "line": 368,
             "description": "Insert item at index i",
             "itemtype": "method",
             "name": "insertAt",
@@ -409,7 +409,7 @@
         },
         {
             "file": "src/lowerdash.js",
-            "line": 383,
+            "line": 379,
             "description": "Attempts to execute function, return false if fails",
             "itemtype": "method",
             "name": "attempt",
@@ -437,11 +437,11 @@
     "warnings": [
         {
             "message": "unknown tag: alias",
-            "line": " src/lowerdash.js:232"
+            "line": " src/lowerdash.js:230"
         },
         {
             "message": "Missing item type\nUtils",
-            "line": " src/lowerdash.js:147"
+            "line": " src/lowerdash.js:145"
         }
     ]
 }

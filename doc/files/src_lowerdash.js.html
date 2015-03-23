@@ -17,7 +17,7 @@
                 <h1><img src="../assets/css/logo.png" title="Lowerdash API" width="117" height="52"></h1>
         </div>
         <div class="yui3-u-1-4 version">
-            <em>API Docs for: 0.2.3</em>
+            <em>API Docs for: 0.2.4</em>
         </div>
     </div>
     <div id="bd" class="yui3-g">
@@ -88,7 +88,7 @@
 	 * @static
 	 */
 	if(typeof require == &#x27;function&#x27;){
-		var _ = require(&#x27;lodash&#x27;);		
+		var _ = require(&#x27;lodash&#x27;).runInContext();		
 		
 		if(typeof exports !== &#x27;undefined&#x27; &amp;&amp; typeof module !== &#x27;undefined&#x27; &amp;&amp; module.exports)
 			module.exports = _;
@@ -208,8 +208,6 @@
 			
 			return cl;
 		},
-		
-		deepmerge: _.merge,
 		
 		/**
 		 *	Retrieve object&#x27;s key paired to given property 
@@ -331,8 +329,6 @@
 				}.bind(bind || this), delay);
 			}, cb, bind);
 		},
-		
-		eachInterval: _.eachDelayed,
 		
 		/**
 		 *	Wait &lt;code&gt;next&lt;/code&gt; cursor to be called before next iteration
@@ -480,6 +476,12 @@
 			}
 		}
 	});
+	
+	_.mixin({
+		eachInterval: _.eachDelayed,
+		gluten: _.joinLast
+	});
+	
 })(Function(&#x27;return this&#x27;)());
     </pre>
 </div>
