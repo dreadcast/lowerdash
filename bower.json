@@ -1,6 +1,6 @@
 {
 	"name": "lowerdash",
-	"version": "0.2.3",
+	"version": "0.2.4",
 	"homepage": "https://github.com/dreadcast/lowerdash",
 	"description": "Useful mixins for Lo-Dash, formerly hidash",
 	"author": "Raphael Gully",
