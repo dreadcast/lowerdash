@@ -14,7 +14,7 @@ My mixins for Lodash, formerly known as hidash.
 * closest
 * from
 * insertAt
-* joinLast
+* joinLast/gluten
 * penultimate
 * replaceAt
 
@@ -22,12 +22,14 @@ My mixins for Lodash, formerly known as hidash.
 ### Object
 
 * keyOf
+* norris
 
 
 ### Array & Object
 
 * eachAsync
 * eachDelayed
+* eachParallel
 
 
 ### Deeper
