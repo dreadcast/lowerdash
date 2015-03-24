@@ -172,7 +172,11 @@
 	 *	@return {Boolean}			was is a valid JSON
 	 */
 	function isJson(was){
-		return _.isString(was) && _.isObject(JSON.parse(was));
+		try{
+			return _.isString(was) && _.isObject(JSON.parse(was));
+		} catch(e){
+			return false;
+		}
 	}
 	
 	/*
