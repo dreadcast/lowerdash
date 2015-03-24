@@ -46,6 +46,9 @@
 	 *	@return {String}			Joined array
 	 */
 	function joinLast(obj, glue, stick){
+		if(_.size(obj) == 1)
+			return obj[0];
+			
 		var last = obj.pop();
 		
 		return obj.join(glue) + stick + last;

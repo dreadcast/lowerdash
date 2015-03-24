@@ -1,7 +1,15 @@
 var _ = require('../src/lowerdash'),
 	assert = require('assert'),
-	myTestObject = require('./testobject.js');
-	
+	myTestObject = require('./testobject.js'),
+	fibonacci = [
+		0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597,
+		2584, 4181, 6765, 10946, 17711, 28657, 46368, 75025, 121393, 196418,
+		317811, 514229, 832040, 1346269, 2178309, 3524578, 5702887, 9227465,
+		14930352, 24157817, 39088169
+	];
+
+// console.info(fibonacci.length == 39)
+
 describe('Lowerdash array', function(){
 	describe('#from()', function(){
 		it('Should be an array when passed arg is "1"', function(){
@@ -27,7 +35,19 @@ describe('Lowerdash array', function(){
 	});
 	
 	
-	describe('#glutten()', function(){
+	describe('#gluten()', function(){
+		it('Make Fibonacci eat gluten', function(){
+ 			assert.equal('0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765, 10946, 17711, 28657, 46368, 75025, 121393, 196418, 317811, 514229, 832040, 1346269, 2178309, 3524578, 5702887, 9227465, 14930352, 24157817 and 39088169', _.gluten(fibonacci, ', ', ' and '));
+		});
+		it('Gluten [1, 2, 3] with ", " and " then " should return "1, 2 then 3"', function(){
+ 			assert.equal('1, 2 then 3', _.gluten([1, 2, 3], ', ', ' then '));
+		});
+		it('Gluten [1, 2] with ", " and " then " should return "1 then 2"', function(){
+ 			assert.equal('1 then 2', _.gluten([1, 2], ', ', ' then '));
+		});
+		it('Gluten [1] with ", " and " then " should return "1"', function(){
+ 			assert.equal('1', _.gluten([1], ', ', ' then '));
+		});
 	});
 	
 	

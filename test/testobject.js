@@ -12,5 +12,6 @@ module.exports = {
 			e52: 512,
 			e53: 513
 		}
-	}
+	},
+	motto: 'You can\'t chunk norris'
 };
