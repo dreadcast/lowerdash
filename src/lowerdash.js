@@ -200,31 +200,61 @@
 		 *	All iterations are concurrents
 		 *	@method eachParallel
 		 *	@param {Object} obj			Object or array.
-		 *	@param {Function} iterator	Iterator, invoked on each entry.
-		 *								Passed arguments are <code>item</code>, <code>index</code>,
+		 *	@param {Function} iterator	Iterator, invoked on each obj entry.
+		 *								Passed arguments are <code>item</code>, <code>index</code> or
 		 								<code>key</code> (if passed object is iterable),
 		 								<code>cursor</code> and passed <code>arr</code>.
 		 *	@param {Function} [cb]		Callback invoked when last iteration is done.
+		 *	@param {Number} [max]		Amount of concurrent tasks.
 		 *	@param {Object} [bind]	 	Object bound to iterator, default to passed <code>arr</code>.
 		 */
-		eachParallel: function(arr, iterator, cb, bind){
-			var stepsToGo = arr.length,
-				cursor = function(){
-					stepsToGo--;
+		eachParallel: function(obj, iterator, cb, max, bind){
+			if(!_.isFinite(max))
+				max = _.size(obj);
+							
+			var stepsToGo = _.size(obj),
+				chunks = _.isIterable(obj) ? _.norris(obj, max) : _.chunk(obj, max);
+			
+			_.eachAsync(chunks, function(chunk, chunkKey, chunkCursor){
+				var chunkIndex = 0;
+				
+				_.each(chunk, function(item, key){
+					function cursor(){
+						stepsToGo--;
+						
+						if(chunkIndex + 1 == max || stepsToGo == 0)
+							chunkCursor();
+					};
+				
+					iterator.call(bind, chunk, chunkKey, cursor, obj);
 					
-					if(stepsToGo == 0)
-						cb();
-				};
-			
-			if(_.isIterable(arr))
-				_.each(arr, function(item, key, index){
-					iterator.call(bind || arr, item, key, index, cursor, arr);
+					chunkIndex++;
 				});
-			
-			else
-				_.each(arr, function(item, index){
-					iterator.call(bind || arr, item, index, cursor, arr);
-				});
+			}, cb, bind);
+		},
+		
+		/**
+		 *	Chunks a plain object
+		 *	Lodash cannot have chunk() without norris()
+		 *	@method norris
+		 *	@param {Object} obj			Object.
+		 *	@param {Number} chunkSize	Chunk size.
+		 *	@return {Array}			 	Chunked object.
+		 */
+		norris: function(obj, chunkSize){
+			return _.chain(obj)
+				.pairs()
+				.chunk(chunkSize)
+				.map(function(pairs){
+					var chunkedObj = {};
+					
+					_.each(pairs, function(pair){
+						chunkedObj[pair[0]] = pair[1];
+					});
+					
+					return chunkedObj;
+				})
+				.value();
 		},
 		
 		/**
@@ -288,7 +318,9 @@
 			if(_.size(obj) == 0)
 				return cb.call(bind);
 			
-			if(_.isIterable(obj))
+			var hasKeys = _.isIterable(obj);
+			
+			if(hasKeys)
 				var keys = _.keys(obj),
 					values = _.values(obj);
 										
@@ -309,7 +341,7 @@
 						cursor = loop.bind(this);
 					
 					if(i < _.size(obj)){
-						if(_.isIterable(obj))
+						if(hasKeys)
 							iterator.call(bind || this, values[i], keys[i], i, cursor, this);	
 						
 						else			
