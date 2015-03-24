@@ -1,7 +1,7 @@
 {
 	"name": "Lowerdash API",
 	"description": "Lowerdash is a set of mixins for lodash.",
-	"version": "0.2.6",
+	"version": "0.3.1",
 	"url": "https://github.com/dreadcast/lowerdash",
 	"options": {
 		"paths": [
