@@ -224,13 +224,15 @@
 						
 						if(chunkIndex + 1 == max || stepsToGo == 0)
 							chunkCursor();
+							
+						chunkIndex++;
 					};
 				
-					iterator.call(bind, chunk, chunkKey, cursor, obj);
-					
-					chunkIndex++;
+					iterator.call(bind, item, key, cursor, obj);
 				});
 			}, cb, bind);
+			
+			return obj;
 		},
 		
 		/**
@@ -318,40 +320,38 @@
 			if(_.size(obj) == 0)
 				return cb.call(bind);
 			
-			var hasKeys = _.isIterable(obj);
-			
-			if(hasKeys)
-				var keys = _.keys(obj),
-					values = _.values(obj);
-										
 			var i = 0,
+				hasKeys = _.isIterable(obj),
+				values = hasKeys ? _.pairs(obj) : obj,
+				size = _.size(values),
+
 				loop = function(){
 					var cursor;
 					
-					if(i >= _.size(obj))
+					if(i >= size)
 						cursor = function(){};
-					
-					else if(i == _.size(obj) - 1 && _.isFunction(cb))
+						
+					else if(i == size - 1 && _.isFunction(cb))
 						cursor = function(){
-							cb.call(bind || this);
-							loop.call(this);
-						}.bind(this);
+							cb.call(bind);
+							loop();
+						};
 					
-					else if(i < _.size(obj))
-						cursor = loop.bind(this);
+					else if(i < size)
+						cursor = loop;
 					
-					if(i < _.size(obj)){
+					if(i < size){	
 						if(hasKeys)
-							iterator.call(bind || this, values[i], keys[i], i, cursor, this);	
+							iterator.call(bind, values[i][1], values[i][0], cursor, obj);	
 						
 						else			
-							iterator.call(bind || this, this[i], i, cursor, this);	
+							iterator.call(bind, values[i], i, cursor, obj);	
 					}
 					
 					i++;
 				};
 				
-			loop.call(obj);
+			loop();
 			
 			return obj;
 		},
