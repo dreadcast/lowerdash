@@ -20,5 +20,8 @@
 		"gulp": "3.8.11",
 		"dreadcast-operative": "latest"
 	},
-	"main": "src/lowerdash.js"
+	"main": "src/lowerdash.js",
+	"scripts": {
+		"test": "mocha test"
+	}
 }
