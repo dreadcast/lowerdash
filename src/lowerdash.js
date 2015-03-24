@@ -235,16 +235,21 @@
 			size = _.size(values);
 
 		function loop(){
-			function cursor(){
-				if(i >= size)
-					return;
+			var cursor;
+			
+			if(i >= size)
+				cursor = function(){};
 
-				else if(i == size - 1 && _.isFunction(cb))
+			else if(i == size - 1 && _.isFunction(cb))
+				cursor = function(){
 					cb.call(bind);
-				
-				else if(i < size)
 					loop();
-			};				
+				};
+				
+			else if(i < size)
+				cursor = function(){
+					loop();
+				};
 			
 			if(i < size){	
 				if(hasKeys)
