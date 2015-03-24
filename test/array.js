@@ -2,13 +2,13 @@ var _ = require('../src/lowerdash'),
 	assert = require('assert'),
 	myTestObject = require('./testobject.js'),
 	fibonacci = [
-		0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597,
+		1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597,
 		2584, 4181, 6765, 10946, 17711, 28657, 46368, 75025, 121393, 196418,
 		317811, 514229, 832040, 1346269, 2178309, 3524578, 5702887, 9227465,
 		14930352, 24157817, 39088169
 	];
 
-// console.info(fibonacci.length == 39)
+//fibonacci.length == 37
 
 describe('Lowerdash array', function(){
 	describe('#from()', function(){
@@ -37,7 +37,7 @@ describe('Lowerdash array', function(){
 	
 	describe('#gluten()', function(){
 		it('Make Fibonacci eat gluten', function(){
- 			assert.equal('0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765, 10946, 17711, 28657, 46368, 75025, 121393, 196418, 317811, 514229, 832040, 1346269, 2178309, 3524578, 5702887, 9227465, 14930352, 24157817 and 39088169', _.gluten(fibonacci, ', ', ' and '));
+ 			assert.equal('1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765, 10946, 17711, 28657, 46368, 75025, 121393, 196418, 317811, 514229, 832040, 1346269, 2178309, 3524578, 5702887, 9227465, 14930352, 24157817 and 39088169', _.gluten(fibonacci, ', ', ' and '));
 		});
 		it('Gluten [1, 2, 3] with ", " and " then " should return "1, 2 then 3"', function(){
  			assert.equal('1, 2 then 3', _.gluten([1, 2, 3], ', ', ' then '));
@@ -54,6 +54,15 @@ describe('Lowerdash array', function(){
 	describe('#isLaxEqual(Array a, Array b)', function(){
 		it('[1, 2, 3] should equal [2, 1, 3]', function(){
 			assert.equal(true, _.isLaxEqual([1, 2, 3], [2, 1, 3]));
+		});
+		it('[1, 2, 3, 4] should not equal [2, 1, 3]', function(){
+			assert.equal(false, _.isLaxEqual([1, 2, 3, 4], [2, 1, 3]));
+		});
+		it('[1, 2, 3, 2] should equal [1, 1, 2, 1, 3]', function(){
+			assert.equal(true, _.isLaxEqual([1, 2, 3, 2], [1, 1, 2, 1, 3]));
+		});
+		it('[1, 2, 3, 2, 5] should not equal [1, 1, 2, 1, 3]', function(){
+			assert.equal(false, _.isLaxEqual([1, 2, 3, 2, 5], [1, 1, 2, 1, 3]));
 		});
 	});
 });
