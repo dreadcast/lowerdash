@@ -4,7 +4,7 @@
         "name": "Lowerdash API",
         "description": "Lowerdash is a set of mixins for lodash.",
         "url": "https://github.com/dreadcast/lowerdash",
-        "version": "0.2.4"
+        "version": "0.2.5"
     },
     "files": {
         "src/lowerdash.js": {
@@ -53,7 +53,7 @@
     "classitems": [
         {
             "file": "src/lowerdash.js",
-            "line": 19,
+            "line": 18,
             "description": "Creates an array containing passed argument or return argument if it is already an array.",
             "itemtype": "method",
             "name": "from",
@@ -66,7 +66,7 @@
         },
         {
             "file": "src/lowerdash.js",
-            "line": 31,
+            "line": 30,
             "description": "Returns penultimate item from an array or null if array contains less than 2 items",
             "itemtype": "method",
             "name": "penultimate",
@@ -86,7 +86,7 @@
         },
         {
             "file": "src/lowerdash.js",
-            "line": 41,
+            "line": 40,
             "description": "Joins items from an array with a different glue before last item",
             "itemtype": "method",
             "name": "joinLast",
@@ -116,7 +116,7 @@
         },
         {
             "file": "src/lowerdash.js",
-            "line": 55,
+            "line": 53,
             "description": "Get property from object following provided path",
             "itemtype": "method",
             "name": "getFromPath",
@@ -141,7 +141,7 @@
         },
         {
             "file": "src/lowerdash.js",
-            "line": 76,
+            "line": 74,
             "description": "Set property of object following provided path",
             "itemtype": "method",
             "name": "setFromPath",
@@ -171,7 +171,7 @@
         },
         {
             "file": "src/lowerdash.js",
-            "line": 103,
+            "line": 99,
             "description": "Removes property of object following provided path",
             "itemtype": "method",
             "name": "eraseFromPath",
@@ -196,7 +196,7 @@
         },
         {
             "file": "src/lowerdash.js",
-            "line": 130,
+            "line": 126,
             "description": "Retrieve object's key paired to given property",
             "itemtype": "method",
             "name": "keyOf",
@@ -221,14 +221,7 @@
         },
         {
             "file": "src/lowerdash.js",
-            "line": 145,
-            "description": "Utils",
-            "class": "Lowerdash",
-            "module": "Lodash"
-        },
-        {
-            "file": "src/lowerdash.js",
-            "line": 148,
+            "line": 141,
             "description": "Lax isEqual, arrays are sorted and unique'd",
             "itemtype": "method",
             "name": "isLaxEqual",
@@ -253,7 +246,47 @@
         },
         {
             "file": "src/lowerdash.js",
-            "line": 198,
+            "line": 191,
+            "description": "Wait <code>next</code> cursor to be called before next iteration",
+            "itemtype": "method",
+            "name": "eachAsync",
+            "params": [
+                {
+                    "name": "obj",
+                    "description": "Object or array.",
+                    "type": "Object"
+                },
+                {
+                    "name": "iterator",
+                    "description": "Iterator, invoked on each entry.\n\t\t\t\t\t\t\tPassed arguments are <code>item</code>, <code>key</code> (if passed obj is iterable),\n \t\t\t\t\t\t\t\t<code>index</code>, <code>cursor</code> and passed <code>arr</code>.",
+                    "type": "Function"
+                },
+                {
+                    "name": "cb",
+                    "description": "Callback invoked after last iteration.",
+                    "type": "Function",
+                    "optional": true
+                },
+                {
+                    "name": "bind",
+                    "description": "Object bound to iterator, default to passed <code>arr</code>.",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "arr\t\tPassed object",
+                "type": "Object"
+            },
+            "example": [
+                "\n\t_.eachAsync([1, 2, 3, 4], function(item, index, cursor, ar){\n\t\tnew Request({\n\t\t\turl: '/rest/' + index,\n\t\t\tonSuccess: function(){\n\t\t\t\tconsole.info('item #' + index + ' posted');\n\t\t\t\tcursor();\n\t\t\t}\n\t\t}).post();\n\t}, function(){ console.info('complete'); })\n\n\t// Works with an array of functions...\n\t_.eachAsync([function(cursor){\n\t\tnew Request({\n\t\t\turl: '/some/url/123',\n\t\t\tonSuccess: cursor\n\t\t}).get();\n\t}, function(cursor){\n\t\tnew Request({\n\t\t\turl: '/some/url/456',\n\t\t\tonSuccess: cursor\n\t\t}).get();\n\t}], function(item, index, cursor, ar){\n\t\titem(cursor);\n\t});"
+            ],
+            "class": "Lowerdash",
+            "module": "Lodash"
+        },
+        {
+            "file": "src/lowerdash.js",
+            "line": 270,
             "description": "Invoke passed iterator on each passed array entry\nAll iterations are concurrents",
             "itemtype": "method",
             "name": "eachParallel",
@@ -265,13 +298,19 @@
                 },
                 {
                     "name": "iterator",
-                    "description": "Iterator, invoked on each entry.\n\t\t\t\t\t\t\tPassed arguments are <code>item</code>, <code>index</code>,\n\t \t\t\t\t\t\t\t\t<code>key</code> (if passed object is iterable),\n\t \t\t\t\t\t\t\t\t<code>cursor</code> and passed <code>arr</code>.",
+                    "description": "Iterator, invoked on each obj entry.\n\t\t\t\t\t\t\tPassed arguments are <code>item</code>, <code>index</code> or\n \t\t\t\t\t\t\t\t<code>key</code> (if passed object is iterable),\n \t\t\t\t\t\t\t\t<code>cursor</code> and passed <code>arr</code>.",
                     "type": "Function"
                 },
                 {
                     "name": "cb",
                     "description": "Callback invoked when last iteration is done.",
                     "type": "Function",
+                    "optional": true
+                },
+                {
+                    "name": "max",
+                    "description": "Amount of concurrent tasks.",
+                    "type": "Number",
                     "optional": true
                 },
                 {
@@ -286,7 +325,7 @@
         },
         {
             "file": "src/lowerdash.js",
-            "line": 230,
+            "line": 310,
             "description": "Wait <code>next</code> n ms to call next iteration. Alias: eachInterval",
             "itemtype": "method",
             "name": "eachDelayed",
@@ -298,7 +337,7 @@
                 },
                 {
                     "name": "iterator",
-                    "description": "Iterator, invoked on each entry.\n\t\t\t\t\t\t\tPassed arguments are <code>item</code>, <code>key</code> (if passed object is iterable),\n\t \t\t\t\t\t\t\t\t<code>index</code>, <code>cursor</code> and passed <code>arr</code>.",
+                    "description": "Iterator, invoked on each entry.\n\t\t\t\t\t\t\tPassed arguments are <code>item</code>, <code>key</code> (if passed object is iterable),\n \t\t\t\t\t\t\t\t<code>index</code>, <code>cursor</code> and passed <code>arr</code>.",
                     "type": "Function"
                 },
                 {
@@ -330,47 +369,32 @@
         },
         {
             "file": "src/lowerdash.js",
-            "line": 251,
-            "description": "Wait <code>next</code> cursor to be called before next iteration",
+            "line": 331,
+            "description": "Chunks a plain object\nLodash cannot have chunk() without norris()",
             "itemtype": "method",
-            "name": "eachAsync",
+            "name": "norris",
             "params": [
                 {
                     "name": "obj",
-                    "description": "Object or array.",
+                    "description": "Object.",
                     "type": "Object"
                 },
                 {
-                    "name": "iterator",
-                    "description": "Iterator, invoked on each entry.\n\t\t\t\t\t\t\tPassed arguments are <code>item</code>, <code>key</code> (if passed obj is iterable),\n\t \t\t\t\t\t\t\t\t<code>index</code>, <code>cursor</code> and passed <code>arr</code>.",
-                    "type": "Function"
-                },
-                {
-                    "name": "cb",
-                    "description": "Callback invoked after last iteration.",
-                    "type": "Function",
-                    "optional": true
-                },
-                {
-                    "name": "bind",
-                    "description": "Object bound to iterator, default to passed <code>arr</code>.",
-                    "type": "Object",
-                    "optional": true
+                    "name": "chunkSize",
+                    "description": "Chunk size.",
+                    "type": "Number"
                 }
             ],
             "return": {
-                "description": "arr\t\tPassed object",
-                "type": "Object"
+                "description": "Chunked object.",
+                "type": "Array"
             },
-            "example": [
-                "\n\t_.eachAsync([1, 2, 3, 4], function(item, index, cursor, ar){\n\t\tnew Request({\n\t\t\turl: '/rest/' + index,\n\t\t\tonSuccess: function(){\n\t\t\t\tconsole.info('item #' + index + ' posted');\n\t\t\t\tcursor();\n\t\t\t}\n\t\t}).post();\n\t}, function(){ console.info('complete'); })\n\n\t// Works with an array of functions...\n\t_.eachAsync([function(cursor){\n\t\tnew Request({\n\t\t\turl: '/some/url/123',\n\t\t\tonSuccess: cursor\n\t\t}).get();\n\t}, function(cursor){\n\t\tnew Request({\n\t\t\turl: '/some/url/456',\n\t\t\tonSuccess: cursor\n\t\t}).get();\n\t}], function(item, index, cursor, ar){\n\t\titem(cursor);\n\t});"
-            ],
             "class": "Lowerdash",
             "module": "Lodash"
         },
         {
             "file": "src/lowerdash.js",
-            "line": 327,
+            "line": 355,
             "description": "Find value closest to given number in an array of numbers",
             "itemtype": "method",
             "name": "closest",
@@ -383,7 +407,7 @@
         },
         {
             "file": "src/lowerdash.js",
-            "line": 357,
+            "line": 385,
             "description": "Replace item at index i with given item",
             "itemtype": "method",
             "name": "replaceAt",
@@ -396,7 +420,7 @@
         },
         {
             "file": "src/lowerdash.js",
-            "line": 368,
+            "line": 396,
             "description": "Insert item at index i",
             "itemtype": "method",
             "name": "insertAt",
@@ -409,7 +433,7 @@
         },
         {
             "file": "src/lowerdash.js",
-            "line": 379,
+            "line": 407,
             "description": "Attempts to execute function, return false if fails",
             "itemtype": "method",
             "name": "attempt",
@@ -437,11 +461,7 @@
     "warnings": [
         {
             "message": "unknown tag: alias",
-            "line": " src/lowerdash.js:230"
-        },
-        {
-            "message": "Missing item type\nUtils",
-            "line": " src/lowerdash.js:145"
+            "line": " src/lowerdash.js:310"
         }
     ]
 }

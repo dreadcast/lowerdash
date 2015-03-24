@@ -17,7 +17,7 @@
                 <h1><img src="../assets/css/logo.png" title="Lowerdash API" width="117" height="52"></h1>
         </div>
         <div class="yui3-u-1-4 version">
-            <em>API Docs for: 0.2.4</em>
+            <em>API Docs for: 0.2.5</em>
         </div>
     </div>
     <div id="bd" class="yui3-g">
@@ -159,6 +159,10 @@
 
                             </li>
                             <li class="index-item method">
+                                <a href="#method_norris">norris</a>
+
+                            </li>
+                            <li class="index-item method">
                                 <a href="#method_penultimate">penultimate</a>
 
                             </li>
@@ -207,7 +211,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_lowerdash.js.html#l379"><code>src&#x2F;lowerdash.js:379</code></a>
+        <a href="../files/src_lowerdash.js.html#l407"><code>src&#x2F;lowerdash.js:407</code></a>
         </p>
 
 
@@ -279,7 +283,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_lowerdash.js.html#l327"><code>src&#x2F;lowerdash.js:327</code></a>
+        <a href="../files/src_lowerdash.js.html#l355"><code>src&#x2F;lowerdash.js:355</code></a>
         </p>
 
 
@@ -337,7 +341,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_lowerdash.js.html#l251"><code>src&#x2F;lowerdash.js:251</code></a>
+        <a href="../files/src_lowerdash.js.html#l191"><code>src&#x2F;lowerdash.js:191</code></a>
         </p>
 
 
@@ -372,7 +376,7 @@
                     <div class="param-description">
                         <p>Iterator, invoked on each entry.
                             Passed arguments are <code>item</code>, <code>key</code> (if passed obj is iterable),
-                                     <code>index</code>, <code>cursor</code> and passed <code>arr</code>.</p>
+                                 <code>index</code>, <code>cursor</code> and passed <code>arr</code>.</p>
 
                     </div>
 
@@ -483,7 +487,7 @@ _.eachAsync([function(cursor){
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_lowerdash.js.html#l230"><code>src&#x2F;lowerdash.js:230</code></a>
+        <a href="../files/src_lowerdash.js.html#l310"><code>src&#x2F;lowerdash.js:310</code></a>
         </p>
 
 
@@ -518,7 +522,7 @@ _.eachAsync([function(cursor){
                     <div class="param-description">
                         <p>Iterator, invoked on each entry.
                             Passed arguments are <code>item</code>, <code>key</code> (if passed object is iterable),
-                                     <code>index</code>, <code>cursor</code> and passed <code>arr</code>.</p>
+                                 <code>index</code>, <code>cursor</code> and passed <code>arr</code>.</p>
 
                     </div>
 
@@ -589,6 +593,9 @@ _.eachAsync([function(cursor){
                         <code class="optional">[cb]</code>
                 </li>
                 <li class="arg">
+                        <code class="optional">[max]</code>
+                </li>
+                <li class="arg">
                         <code class="optional">[bind]</code>
                 </li>
             </ul><span class="paren">)</span>
@@ -604,7 +611,7 @@ _.eachAsync([function(cursor){
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_lowerdash.js.html#l198"><code>src&#x2F;lowerdash.js:198</code></a>
+        <a href="../files/src_lowerdash.js.html#l270"><code>src&#x2F;lowerdash.js:270</code></a>
         </p>
 
 
@@ -638,10 +645,10 @@ All iterations are concurrents</p>
 
 
                     <div class="param-description">
-                        <p>Iterator, invoked on each entry.
-                            Passed arguments are <code>item</code>, <code>index</code>,
-                                     <code>key</code> (if passed object is iterable),
-                                     <code>cursor</code> and passed <code>arr</code>.</p>
+                        <p>Iterator, invoked on each obj entry.
+                            Passed arguments are <code>item</code>, <code>index</code> or
+                                 <code>key</code> (if passed object is iterable),
+                                 <code>cursor</code> and passed <code>arr</code>.</p>
 
                     </div>
 
@@ -654,6 +661,18 @@ All iterations are concurrents</p>
 
                     <div class="param-description">
                         <p>Callback invoked when last iteration is done.</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name optional">[max]</code>
+                        <span class="type">Number</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+
+
+                    <div class="param-description">
+                        <p>Amount of concurrent tasks.</p>
 
                     </div>
 
@@ -703,7 +722,7 @@ All iterations are concurrents</p>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_lowerdash.js.html#l103"><code>src&#x2F;lowerdash.js:103</code></a>
+        <a href="../files/src_lowerdash.js.html#l99"><code>src&#x2F;lowerdash.js:99</code></a>
         </p>
 
 
@@ -774,7 +793,7 @@ All iterations are concurrents</p>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_lowerdash.js.html#l19"><code>src&#x2F;lowerdash.js:19</code></a>
+        <a href="../files/src_lowerdash.js.html#l18"><code>src&#x2F;lowerdash.js:18</code></a>
         </p>
 
 
@@ -826,7 +845,7 @@ All iterations are concurrents</p>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_lowerdash.js.html#l55"><code>src&#x2F;lowerdash.js:55</code></a>
+        <a href="../files/src_lowerdash.js.html#l53"><code>src&#x2F;lowerdash.js:53</code></a>
         </p>
 
 
@@ -897,7 +916,7 @@ All iterations are concurrents</p>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_lowerdash.js.html#l368"><code>src&#x2F;lowerdash.js:368</code></a>
+        <a href="../files/src_lowerdash.js.html#l396"><code>src&#x2F;lowerdash.js:396</code></a>
         </p>
 
 
@@ -949,7 +968,7 @@ All iterations are concurrents</p>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_lowerdash.js.html#l148"><code>src&#x2F;lowerdash.js:148</code></a>
+        <a href="../files/src_lowerdash.js.html#l141"><code>src&#x2F;lowerdash.js:141</code></a>
         </p>
 
 
@@ -1032,7 +1051,7 @@ All iterations are concurrents</p>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_lowerdash.js.html#l41"><code>src&#x2F;lowerdash.js:41</code></a>
+        <a href="../files/src_lowerdash.js.html#l40"><code>src&#x2F;lowerdash.js:40</code></a>
         </p>
 
 
@@ -1123,7 +1142,7 @@ All iterations are concurrents</p>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_lowerdash.js.html#l130"><code>src&#x2F;lowerdash.js:130</code></a>
+        <a href="../files/src_lowerdash.js.html#l126"><code>src&#x2F;lowerdash.js:126</code></a>
         </p>
 
 
@@ -1176,6 +1195,87 @@ All iterations are concurrents</p>
 
 
 </div>
+<div id="method_norris" class="method item">
+    <h3 class="name"><code>norris</code></h3>
+
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+                <li class="arg">
+                        <code>obj</code>
+                </li>
+                <li class="arg">
+                        <code>chunkSize</code>
+                </li>
+            </ul><span class="paren">)</span>
+        </div>
+
+        <span class="returns-inline">
+            <span class="type">Array</span>
+        </span>
+
+
+
+
+
+
+
+    <div class="meta">
+                <p>
+                Defined in
+        <a href="../files/src_lowerdash.js.html#l331"><code>src&#x2F;lowerdash.js:331</code></a>
+        </p>
+
+
+
+    </div>
+
+    <div class="description">
+        <p>Chunks a plain object
+Lodash cannot have chunk() without norris()</p>
+
+    </div>
+
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+                <li class="param">
+                        <code class="param-name">obj</code>
+                        <span class="type">Object</span>
+
+
+                    <div class="param-description">
+                        <p>Object.</p>
+
+                    </div>
+
+                </li>
+                <li class="param">
+                        <code class="param-name">chunkSize</code>
+                        <span class="type">Number</span>
+
+
+                    <div class="param-description">
+                        <p>Chunk size.</p>
+
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                        <span class="type">Array</span>:
+                    <p>Chunked object.</p>
+
+            </div>
+        </div>
+
+
+</div>
 <div id="method_penultimate" class="method item">
     <h3 class="name"><code>penultimate</code></h3>
 
@@ -1200,7 +1300,7 @@ All iterations are concurrents</p>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_lowerdash.js.html#l31"><code>src&#x2F;lowerdash.js:31</code></a>
+        <a href="../files/src_lowerdash.js.html#l30"><code>src&#x2F;lowerdash.js:30</code></a>
         </p>
 
 
@@ -1260,7 +1360,7 @@ All iterations are concurrents</p>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_lowerdash.js.html#l357"><code>src&#x2F;lowerdash.js:357</code></a>
+        <a href="../files/src_lowerdash.js.html#l385"><code>src&#x2F;lowerdash.js:385</code></a>
         </p>
 
 
@@ -1315,7 +1415,7 @@ All iterations are concurrents</p>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_lowerdash.js.html#l76"><code>src&#x2F;lowerdash.js:76</code></a>
+        <a href="../files/src_lowerdash.js.html#l74"><code>src&#x2F;lowerdash.js:74</code></a>
         </p>
 
 
