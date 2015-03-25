@@ -38,12 +38,22 @@ describe('Lowerdash deep', function(){
 			assert.equal(true, _.isEqual(myTestObject.f.f2, { f21: 345, f22: 346 }));
 		});
 	});
+	
 	describe('#eraseFromPath()', function(){
-		it('eraseFromPath "f.f1.f22"', function(){
-			_.eraseFromPath(myTestObject, 'f.f1.f22');
+		it('eraseFromPath "f.f2.f22"', function(){
+			_.eraseFromPath(myTestObject, 'f.f2.f22');
 			
-			assert.equal(null, _.getFromPath(myTestObject, 'f.f1.f22'));
-			assert.equal(null, myTestObject.f.f1.f22);
+			assert.equal(null, _.getFromPath(myTestObject, 'f.f2.f22'));
+			assert.equal(null, myTestObject.f.f2.f22);
+			
+			assert.equal(true, _.isEqual(_.getFromPath(myTestObject, 'f.f2'), { f21: 345 }));
+			assert.equal(true, _.isEqual(myTestObject.f.f2, { f21: 345 }));
+		});
+		it('eraseFromPath "f.f2"', function(){
+			_.eraseFromPath(myTestObject, 'f.f2');
+			
+			assert.equal(null, _.getFromPath(myTestObject, 'f.f2'));
+			assert.equal(null, myTestObject.f.f2);
 		});
 	});
 });

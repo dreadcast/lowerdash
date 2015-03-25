@@ -5,18 +5,32 @@ var _ = require('../src/lowerdash'),
 
 describe('Lowerdash array', function(){
 	describe('#from()', function(){
-		it('Should be an array when passed arg is "1"', function(){
-			assert.equal(true, _.isArray(_.from(1)));
+		describe('Should be an array', function(){
+			it('Should be an array when passed arg is "1"', function(){
+				assert.equal(true, _.isArray(_.from(1)));
+			});
+			it('Should be an array when passed arg is "[1]"', function(){
+				assert.equal(true, _.isArray(_.from([1])));
+			});
 		});
 		
-		it('First entry should return "1"', function(){
-			assert.equal(1, _.from(1)[0]);
-			assert.equal(1, _.from([1])[0]);
+		describe('Should return "1"', function(){
+			it('First entry should return "1" when passed arg is "1"', function(){
+				assert.equal(1, _.from(1)[0]);
+			});
+			it('First entry should return "1" when passed arg is "[1]"', function(){
+				assert.equal(1, _.from([1])[0]);
+				assert.equal(1, _.chain([1]).from().last().value());
+			});
 		});
 		
-		it('should equal "[1]" when passed argument is "1"', function(){
-			assert.equal(true, _.isEqual(_.from(1), [1]));
-			assert.equal(true, _.isEqual(_.from([1]), [1]));
+		describe('Should equal "[1]"', function(){
+			it('should equal "[1]" when passed argument is "1"', function(){
+				assert.equal(true, _.isEqual(_.from(1), [1]));
+			});
+			it('should equal "[1]" when passed argument is "[1]"', function(){
+				assert.equal(true, _.isEqual(_.from([1]), [1]));
+			});
 		});
 	});
 	
