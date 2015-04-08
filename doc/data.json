@@ -4,7 +4,7 @@
         "name": "Lowerdash API",
         "description": "Lowerdash is a set of mixins for lodash.",
         "url": "https://github.com/dreadcast/lowerdash",
-        "version": "0.3.1"
+        "version": "0.3.2"
     },
     "files": {
         "src/lowerdash.js": {
@@ -116,7 +116,7 @@
         },
         {
             "file": "src/lowerdash.js",
-            "line": 53,
+            "line": 56,
             "description": "Get property from object following provided path",
             "itemtype": "method",
             "name": "getFromPath",
@@ -141,7 +141,7 @@
         },
         {
             "file": "src/lowerdash.js",
-            "line": 74,
+            "line": 77,
             "description": "Set property of object following provided path",
             "itemtype": "method",
             "name": "setFromPath",
@@ -171,7 +171,7 @@
         },
         {
             "file": "src/lowerdash.js",
-            "line": 99,
+            "line": 102,
             "description": "Removes property of object following provided path",
             "itemtype": "method",
             "name": "eraseFromPath",
@@ -196,7 +196,7 @@
         },
         {
             "file": "src/lowerdash.js",
-            "line": 126,
+            "line": 129,
             "description": "Retrieve object's key paired to given property",
             "itemtype": "method",
             "name": "keyOf",
@@ -221,7 +221,7 @@
         },
         {
             "file": "src/lowerdash.js",
-            "line": 141,
+            "line": 144,
             "description": "Lax isEqual, arrays are sorted and unique'd",
             "itemtype": "method",
             "name": "isLaxEqual",
@@ -246,7 +246,7 @@
         },
         {
             "file": "src/lowerdash.js",
-            "line": 191,
+            "line": 198,
             "description": "Wait <code>next</code> cursor to be called before next iteration",
             "itemtype": "method",
             "name": "eachAsync",
@@ -286,7 +286,7 @@
         },
         {
             "file": "src/lowerdash.js",
-            "line": 270,
+            "line": 277,
             "description": "Invoke passed iterator on each passed array entry\nAll iterations are concurrents",
             "itemtype": "method",
             "name": "eachParallel",
@@ -325,7 +325,7 @@
         },
         {
             "file": "src/lowerdash.js",
-            "line": 310,
+            "line": 317,
             "description": "Wait <code>next</code> n ms to call next iteration. Alias: eachInterval",
             "itemtype": "method",
             "name": "eachDelayed",
@@ -369,7 +369,7 @@
         },
         {
             "file": "src/lowerdash.js",
-            "line": 331,
+            "line": 338,
             "description": "Chunks a plain object\nLodash cannot have chunk() without norris()",
             "itemtype": "method",
             "name": "norris",
@@ -394,7 +394,7 @@
         },
         {
             "file": "src/lowerdash.js",
-            "line": 355,
+            "line": 362,
             "description": "Find value closest to given number in an array of numbers",
             "itemtype": "method",
             "name": "closest",
@@ -407,7 +407,7 @@
         },
         {
             "file": "src/lowerdash.js",
-            "line": 385,
+            "line": 392,
             "description": "Replace item at index i with given item",
             "itemtype": "method",
             "name": "replaceAt",
@@ -420,7 +420,7 @@
         },
         {
             "file": "src/lowerdash.js",
-            "line": 396,
+            "line": 403,
             "description": "Insert item at index i",
             "itemtype": "method",
             "name": "insertAt",
@@ -433,7 +433,7 @@
         },
         {
             "file": "src/lowerdash.js",
-            "line": 407,
+            "line": 414,
             "description": "Attempts to execute function, return false if fails",
             "itemtype": "method",
             "name": "attempt",
@@ -461,7 +461,7 @@
     "warnings": [
         {
             "message": "unknown tag: alias",
-            "line": " src/lowerdash.js:310"
+            "line": " src/lowerdash.js:317"
         }
     ]
 }
