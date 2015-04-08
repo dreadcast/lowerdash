@@ -68,7 +68,7 @@
 				obj = obj[path[i]];
 			
 			else
-				return null;
+				return undefined;
 		}
 		
 		return obj;
