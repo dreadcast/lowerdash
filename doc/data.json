@@ -4,7 +4,7 @@
         "name": "Lowerdash API",
         "description": "Lowerdash is a set of mixins for lodash.",
         "url": "https://github.com/dreadcast/lowerdash",
-        "version": "0.3.2"
+        "version": "0.3.3"
     },
     "files": {
         "src/lowerdash.js": {
@@ -448,6 +448,32 @@
                     "description": "Arguments to pass to function",
                     "type": "Mixed",
                     "multiple": true
+                }
+            ],
+            "return": {
+                "description": "Function result or false",
+                "type": "Mixed"
+            },
+            "class": "Lowerdash",
+            "module": "Lodash"
+        },
+        {
+            "file": "src/lowerdash.js",
+            "line": 432,
+            "description": "Return a wrapped function that will catch errors and return provided defaultValue or undefined",
+            "itemtype": "method",
+            "name": "straitjacket",
+            "params": [
+                {
+                    "name": "fn",
+                    "description": "Function to catch errors from",
+                    "type": "Function"
+                },
+                {
+                    "name": "defaultValue",
+                    "description": "Returned value if invoking wrapped function fails",
+                    "type": "Mixed",
+                    "optional": true
                 }
             ],
             "return": {
