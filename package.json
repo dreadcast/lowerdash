@@ -14,7 +14,7 @@
 		"underscore"
 	],
 	"dependencies": {
-		"lodash": "3.5.0"
+		"lodash": "^3.5.0"
 	},
 	"devDependencies": {
 		"run-sequence": "^1.0.2",
@@ -23,6 +23,7 @@
 	},
 	"main": "src/lowerdash.js",
 	"scripts": {
-		"test": "mocha test"
+		"test": "mocha test",
+		"build": "gulp"
 	}
 }

@@ -1,9 +1,12 @@
 /**
- *	Removes property of object following provided path
- *	@method eraseFromPath
- *	@param {Object} obj			Object to remove property from
- *	@param {String} path		Path to property
- *	@return {Object}			Object
+ * Removes property of object following provided path
+ * @method eraseFromPath
+ * @static
+ * @memberOf _
+ * @category Object
+ * @param {Object} obj			Object to remove property from
+ * @param {String} path		Path to property
+ * @return {Object}			Object
  */
 export default function eraseFromPath(obj, path){
     var parts = path.split('.'),
