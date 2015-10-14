@@ -1,6 +1,6 @@
-import isEqual from 'lodash/lang/isEqual';
 import isObject from 'lodash/lang/isObject';
 import isArray from 'lodash/lang/isArray';
+import isFunction from 'lodash/lang/isFunction';
 
 /**
  *	Checks if passed argument is an iterable object, not an array or a function

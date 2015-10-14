@@ -1,10 +1,14 @@
-var _ = require('../src/lowerdash'),
+require('babel/register')({
+    stage: 0
+});
+
+var _ = require('../lodash'),
 	assert = require('assert'),
 	myTestObject = require('./testobject.js'),
 	fibonacci = require('./fibonacci'),
 	fs = require('fs'),
 	Path = require('path');
-	
+
 describe('Lowerdash async', function(){
 	describe('#eachAsync(Object/Array obj, Function iterator, Function done)', function(){
 		var collector = [],
@@ -13,17 +17,17 @@ describe('Lowerdash async', function(){
 		before(function(done){
 			_.eachAsync(myTestObject, function(item, key, cursor){
 				index++;
-				
+
 				collector.push(item);
 				assert.equal(undefined, collector[index]);
-				
+
 				setTimeout(function(){
 					cursor();
 					assert.equal(myTestObject.key, collector[index]);
 				}, 10);
 			}, done);
 		});
-			
+
 		it('collector size should equal 6', function(){
 			assert.equal(6, _.size(collector));
 			assert.equal(6, collector.length);
@@ -40,19 +44,19 @@ describe('Lowerdash async', function(){
 
 	describe('#eachAsync fibonacci -> collector', function(){
 		var collector = [];
-		
+
 		before(function(done){
 			_.eachAsync(fibonacci, function(item, index, cursor){
 				collector.push(item)
 				assert.equal(undefined, collector[index + 1]);
-				
+
 				setTimeout(function(){
 					cursor();
 					assert.equal(fibonacci[index + 1], collector[index + 1]);
 				}, 10);
 			}, done);
 		});
-		
+
 		it('When done, compare length equality between fibonacci & collector', function(){
 			assert.equal(fibonacci.length, collector.length);
 		});
@@ -64,12 +68,12 @@ describe('Lowerdash async', function(){
 	describe('#eachAsync read dir "' + __dirname + '"', function(){
 		var collector = {},
 			keys;
-			
+
 		before(function(done){
 			fs.readdir(__dirname, function(err, files){
 				if(err)
 					throw new Error(err);
-					
+
 				_.eachAsync(files, function(file, index, cursor){
 					fs.stat(__dirname + '/' + file, function(err, stat){
 						if(err)
@@ -80,12 +84,12 @@ describe('Lowerdash async', function(){
 					});
 				}, function(){
 					keys = _.keys(collector);
-					
+
 					done();
 				});
 			});
 		});
-		
+
 		describe('#eachAsync check keys', function(){
 			it('collector has a key named "' + Path.basename(__filename) + '"', function(){
 				assert.equal(true, _.contains(keys, Path.basename(__filename)));

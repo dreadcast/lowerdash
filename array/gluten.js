@@ -8,7 +8,7 @@ import size from 'lodash/collection/size';
  *	@param {String} stick		Delimiter before last item
  *	@return {String}			Joined array
  */
-export function gluten(obj, glue, stick){
+export default function gluten(obj, glue, stick){
     if(size(obj) == 1)
         return obj[0];
 
@@ -17,4 +17,5 @@ export function gluten(obj, glue, stick){
     return obj.join(glue) + stick + last;
 }
 
-export default joinLast = gluten;
+// var joinLast = gluten;
+// export joinLast;

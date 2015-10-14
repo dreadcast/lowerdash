@@ -1,35 +1,39 @@
-var _ = require('../src/array'),
+require('babel/register')({
+    stage: 0
+});
+
+var _ = require('../lodash'),
 	assert = require('assert'),
 	myTestObject = require('./testobject.js'),
 	fibonacci = require('./fibonacci');
 
 describe('Lowerdash array', function(){
-	describe('#from()', function(){
+	describe('#arry()', function(){
 		describe('Should be an array', function(){
 			it('Should be an array when passed arg is "1"', function(){
-				assert.equal(true, _.isArray(_.from(1)));
+				assert.equal(true, _.isArray(_.arry(1)));
 			});
 			it('Should be an array when passed arg is "[1]"', function(){
-				assert.equal(true, _.isArray(_.from([1])));
+				assert.equal(true, _.isArray(_.arry([1])));
 			});
 		});
 
 		describe('Should return "1"', function(){
 			it('First entry should return "1" when passed arg is "1"', function(){
-				assert.equal(1, _.from(1)[0]);
+				assert.equal(1, _.arry(1)[0]);
 			});
 			it('First entry should return "1" when passed arg is "[1]"', function(){
-				assert.equal(1, _.from([1])[0]);
-				assert.equal(1, _.chain([1]).from().last().value());
+				assert.equal(1, _.arry([1])[0]);
+				assert.equal(1, _.chain([1]).arry().last().value());
 			});
 		});
 
 		describe('Should equal "[1]"', function(){
 			it('should equal "[1]" when passed argument is "1"', function(){
-				assert.equal(true, _.isEqual(_.from(1), [1]));
+				assert.equal(true, _.isEqual(_.arry(1), [1]));
 			});
 			it('should equal "[1]" when passed argument is "[1]"', function(){
-				assert.equal(true, _.isEqual(_.from([1]), [1]));
+				assert.equal(true, _.isEqual(_.arry([1]), [1]));
 			});
 		});
 	});

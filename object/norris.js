@@ -1,8 +1,7 @@
-import chain from 'lodash/chain/chain';
-import value from 'lodash/chain/value';
-import size from 'lodash/collection/size';
 import pairs from 'lodash/object/pairs';
 import each from 'lodash/collection/each';
+import map from 'lodash/collection/map';
+import chunk from 'lodash/array/chunk';
 
 /**
  *	Chunks a plain object
@@ -13,10 +12,11 @@ import each from 'lodash/collection/each';
  *	@return {Array}			 	Chunked object.
  */
 export default function norris(obj, chunkSize){
-    return chain(obj)
-        .pairs()
-        .chunk(chunkSize)
-        .map(function(pairs){
+    return map(
+        chunk(
+            pairs(obj), chunkSize
+        ),
+        function(pairs){
             var chunkedObj = {};
 
             each(pairs, function(pair){
@@ -24,6 +24,6 @@ export default function norris(obj, chunkSize){
             });
 
             return chunkedObj;
-        })
-        .value();
+        }
+    );
 }

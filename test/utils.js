@@ -1,7 +1,11 @@
-var _ = require('../src/lowerdash'),
+require('babel/register')({
+    stage: 0
+});
+
+var _ = require('../lodash'),
 	assert = require('assert'),
 	myTestObject = require('./testobject.js');
-	
+
 describe('Lowerdash utils', function(){
 	describe('#isJson(String was)', function(){
 		var goodJson = '{"e51":511,"e52":512,"e53":513}',
@@ -13,7 +17,7 @@ describe('Lowerdash utils', function(){
 		it('JSON.stringify(myTestObject) is valid JSON', function(){
 			assert.equal(true, _.isJson(JSON.stringify(myTestObject)));
 		});
-		
+
 		it('myTestObject is not valid JSON', function(){
 			assert.equal(false, _.isJson(myTestObject));
 		});
@@ -21,8 +25,8 @@ describe('Lowerdash utils', function(){
 			assert.equal(false, _.isJson(badJson));
 		});
 	});
-	
-	
+
+
 	describe('#isShit(Mixed was)', function(){
 		//null, 'null', undefined, '', false, 'false', 0, '0'
 		it('null is shit', function(){
@@ -66,8 +70,3 @@ describe('Lowerdash utils', function(){
 		});
 	});
 });
-
-
-
-
-

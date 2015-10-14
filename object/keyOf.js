@@ -5,7 +5,7 @@
  *	@param {T} value		Value corresponding to key
  *	@return {String}			Key or null if no key was found
  */
-function keyOf(obj, value){
+export default function keyOf(obj, value){
     for(var key in obj)
         if(Object.prototype.hasOwnProperty.call(obj, key) && obj[key] === value)
             return key;

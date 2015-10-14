@@ -1,20 +1,27 @@
-lowerdash
+lowerdash - ES6
 ======
 
 My mixins for Lodash, formerly known as hidash.
+
+### Now available as ES6 style module and use lodash as `peerDependency`
 
 ## Lowerdash provides the following methods:
 
 ### Function
 
-* attempt
+* straitjacket (fn Function, Mixed defaultValue)
+
+  Returns a new function that tries to invoke passed `fn` and return `defaultValue` otherwise.
 
 ### Array
 
 * closest
-* from
+* arry (any Mixed)
+
+  Returns an array from `any` array-like. If passed `any` is not array-like,
+  returns a new array containing the `any` element
 * insertAt
-* joinLast/gluten
+* gluten
 * penultimate
 * replaceAt
 
@@ -26,6 +33,8 @@ My mixins for Lodash, formerly known as hidash.
 
 
 ### Array & Object
+
+Painless async series without promise.
 
 * eachAsync
 * eachDelayed
@@ -51,7 +60,11 @@ npm install lowerdash
 
 Then in your scripts:
 ```javascript
+// require lowerdash
 var _ = require('lowerdash');
+
+// or require lowerdashed lodash
+var _ = require('lodash');
 ```
 
 
@@ -65,7 +78,3 @@ Then include these files into your documents
 <script src="bower_components/lowerdash/dist/lowerdash.js"></script>
 <script src="bower_components/lodash/dist/lodash.js"></script>
 ```
-
-## Documentation ##
-
-[YUI docs here](http://dreadcast.github.io/lowerdash/doc/classes/Lowerdash.html)
