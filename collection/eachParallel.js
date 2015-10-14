@@ -1,12 +1,10 @@
-import isFinite from './../lang/isFinite';
+import isFinite from 'lodash/lang/isFinite';
 import size from 'lodash/collection/size';
-import isIterable from 'lodash/lang/isIterable';
+import isIterable from './../lang/isIterable';
 import norris from './../object/norris';
 import chunk from 'lodash/array/chunk';
 import eachAsync from './eachAsync';
 import each from 'lodash/collection/each';
-
-import pairs from 'lodash/array/pairs';
 
 /**
  *	Invoke passed iterator on each passed array entry

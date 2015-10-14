@@ -1,7 +1,7 @@
 import chain from 'lodash/chain/chain';
 import value from 'lodash/chain/value';
 import size from 'lodash/collection/size';
-import pairs from 'lodash/array/pairs';
+import pairs from 'lodash/object/pairs';
 import each from 'lodash/collection/each';
 
 /**

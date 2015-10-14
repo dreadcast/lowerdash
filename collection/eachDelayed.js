@@ -22,4 +22,5 @@ export default function eachDelayed(obj, iterator, cb, delay, bind){
     }, cb, bind);
 }
 
-export eachInterval = eachDelayed;
+// var eachInterval = eachDelayed;
+// export eachInterval;

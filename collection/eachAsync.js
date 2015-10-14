@@ -1,5 +1,5 @@
 import size from 'lodash/collection/size';
-import pairs from 'lodash/array/pairs';
+import pairs from 'lodash/object/pairs';
 import isIterable from './../lang/isIterable';
 import isFunction from 'lodash/lang/isFunction';
 

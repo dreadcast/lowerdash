@@ -13,17 +13,25 @@
 		"lodash",
 		"underscore"
 	],
-	"dependencies": {
+	"peerDependencies": {
 		"lodash": "^3.5.0"
 	},
 	"devDependencies": {
+		"babel": "5.8.23",
+		"browserify": "11.2.0",
+		"fs-extra": "0.24.0",
+		"babelify": "6.3.0",
+		"uglify-js": "2.4.10",
+		"fileconcat": "1.1.2",
+		"fileconcat": "1.1.2",
 		"run-sequence": "^1.0.2",
+		"bluebird": "2.10.2",
 		"gulp": "3.8.11",
 		"dreadcast-operative": "latest"
 	},
 	"main": "src/lowerdash.js",
 	"scripts": {
 		"test": "mocha test",
-		"build": "gulp"
+		"build": "node build.js"
 	}
 }

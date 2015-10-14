@@ -1,17 +1,8 @@
-import lodash from 'lodash';
+import assign from 'lodash/object/assign';
+import array from './es/array';
+import collection from './es/collection';
+import lang from './es/lang';
+import object from './es/object';
+import utility from './es/utility';
 
-import array from './array';
-import collection from './collection';
-import lang from './lang';
-import object from './object';
-import utility from './utility';
-
-var lowerdash = { array, collection, lang, object, utility };
-export lowerdash;
-
-
-lodash = lodash
-    .runInContext()
-    .mixin(lowerdash);
-
-export default lodash;
+export default assign({}, array, collection, lang, object, utility);
