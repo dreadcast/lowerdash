@@ -5,5 +5,5 @@
  *	@return {Mixed}				Penultimate item from provided array
  */
 export default function penultimate(obj){
-    return obj.length > 1 ? obj[obj.length - 2] : null;
+	return obj.length > 1 ? obj[obj.length - 2] : null;
 }

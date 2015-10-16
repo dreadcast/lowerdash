@@ -9,5 +9,5 @@ import isFunction from 'lodash/lang/isFunction';
  *	@return {Boolean}			was is iterable
  */
 export default function isIterable(was){
-    return isObject(was) && !isFunction(was) && !isArray(was);
+	return isObject(was) && !isFunction(was) && !isArray(was);
 }

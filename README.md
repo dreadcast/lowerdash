@@ -9,45 +9,76 @@ My mixins for Lodash, formerly known as hidash.
 
 ### Function
 
-* straitjacket (fn Function, Mixed defaultValue)
+#### straitjacket (fn Function, Mixed defaultValue)
+Returns a new function that tries to invoke passed `fn` and return `defaultValue` otherwise.
 
-  Returns a new function that tries to invoke passed `fn` and return `defaultValue` otherwise.
+```javascript
+import closest from 'lowerdash/utility/straitjacket';
+
+var straitjacketed = straitjacket(function(){
+	return undefinedValue;
+}, 'Not found');
+
+straitjacketed();
+// -> 'Not found'
+```
 
 ### Array
 
-* closest
-* arry (any Mixed)
+#### closest
+Compares passed value to passed array values and return the closest.
+```javascript
+import closest from 'lowerdash/array/closest';
+closest([0, 10, 20, 30, 40], 6);
+// -> 10
+```
 
-  Returns an array from `any` array-like. If passed `any` is not array-like,
-  returns a new array containing the `any` element
-* insertAt
-* gluten
-* penultimate
-* replaceAt
+#### arry (any Mixed)
+Returns an array from `any` array-like. If passed `any` is not array-like,
+returns a new array containing the `any` element.
+
+```javascript
+import arry from 'lowerdash/array/arry';
+arry([1, 2, 3]);
+// -> [1, 2, 3]
+
+arry(1);
+// -> [1]
+
+function(a, b, c){
+	return arry(arguments);
+	// -> [a, b, c]
+}
+```
+
+#### insertAt
+#### gluten
+#### penultimate
+#### replaceAt
 
 
 ### Object
 
-* keyOf
-* norris
+#### keyOf
+#### norris
 
 
 ### Array & Object
 
 Painless async series without promise.
 
-* eachAsync
-* eachDelayed
-* eachParallel
+#### eachAsync
+#### eachDelayed
+#### eachParallel
 
 
 ### Deeper
 
 Set/get/erase Object properties from path
 
-* getFromPath
-* setFromPath
-* eraseFromPath
+#### getFromPath
+#### setFromPath
+#### eraseFromPath
 
 
 

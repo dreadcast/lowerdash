@@ -10,13 +10,13 @@ import isEqual from 'lodash/lang/isEqual';
  *	@return {Boolean}			Lax equality
  */
 export default function isLaxEqual(a, b){
-    if(isArray(a)){
-        a = uniq(a.sort());
-    }
+	if(isArray(a)){
+		a = uniq(a.sort());
+	}
 
-    if(isArray(b)){
-        b = uniq(b.sort());
-    }
+	if(isArray(b)){
+		b = uniq(b.sort());
+	}
 
-    return isEqual(a, b);
+	return isEqual(a, b);
 }

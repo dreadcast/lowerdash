@@ -8,10 +8,10 @@ import isObject from 'lodash/lang/isObject';
  *	@return {Boolean}			was is a valid JSON
  */
 export default function isJson(was){
-    try {
-        return isString(was) && isObject(JSON.parse(was));
+	try {
+		return isString(was) && isObject(JSON.parse(was));
 
-    } catch(e){
-        return false;
-    }
+	} catch(e){
+		return false;
+	}
 }

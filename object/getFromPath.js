@@ -6,15 +6,15 @@
  *	@return {Mixed}				Property
  */
 export default function getFromPath(obj, path){
-    path = path.split('.');
+	path = path.split('.');
 
-    for(var i = 0, l = path.length; i < l; i++){
-        if (hasOwnProperty.call(obj, path[i]))
-            obj = obj[path[i]];
+	for(var i = 0, l = path.length; i < l; i++){
+		if (hasOwnProperty.call(obj, path[i]))
+			obj = obj[path[i]];
 
-        else
-            return null;
-    }
+		else
+			return null;
+	}
 
-    return obj;
+	return obj;
 }

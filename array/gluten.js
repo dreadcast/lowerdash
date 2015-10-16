@@ -1,4 +1,4 @@
-import size from 'lodash/collection/size';
+import size from 'lodash/collection/size.js';
 
 /**
  *	Joins items from an array with a different glue before last item
@@ -9,13 +9,13 @@ import size from 'lodash/collection/size';
  *	@return {String}			Joined array
  */
 export default function gluten(obj, glue, stick){
-    if(size(obj) == 1)
-        return obj[0];
+	if(size(obj) == 1){
+		return obj[0];
+	}
 
-    var last = obj.pop();
+	var last = obj.pop();
 
-    return obj.join(glue) + stick + last;
+	return obj.join(glue) + stick + last;
 }
 
-// var joinLast = gluten;
-// export joinLast;
+export var joinLast = gluten;

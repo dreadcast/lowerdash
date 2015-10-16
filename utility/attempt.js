@@ -1,4 +1,4 @@
-import arry from './../array/arry';
+import arry from './../array/arry.js';
 
 /**
  *	Attempts to execute function, return false if fails
@@ -7,7 +7,7 @@ import arry from './../array/arry';
  *	@param {Mixed} arguments*	Arguments to pass to function
  *	@return {Mixed} 			Function result or false
  */
-function attempt(fn){
+export default function attempt(fn){
     try {
         var args = arry(arguments);
         args.shift();

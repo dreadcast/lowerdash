@@ -3,8 +3,8 @@
  *	@method insertAt
  *	@return {Array}				Array instance
  */
-function insertAt(arr, item, i){
-    arr.splice(i, 0, item);
+export default function insertAt(arr, item, i){
+	arr.splice(i, 0, item);
 
-    return arr;
+	return arr;
 }

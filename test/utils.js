@@ -7,6 +7,24 @@ var _ = require('../lodash'),
 	myTestObject = require('./testobject.js');
 
 describe('Lowerdash utils', function(){
+	describe('#straitjacket(fn, defaultValue)', function(){
+		var straitjacketed = _.straitjacket(function(a, b){
+			return a + b;
+		}, false);
+
+		var straitjacketed2 = _.straitjacket(function(a, b){
+			return c;
+		}, 'bobo');
+
+		it('var straitjacketed = straitjacket(function(a, b){ return a + b; }, false); straitjacketed(1, 2) should return 3', function(){
+			assert.equal(3, straitjacketed(1, 2));
+		});
+		it('straitjacketed2 = straitjacket(function(a, b){ return c; }, \'bobo\'); straitjacketed2(1, 2) should return "bobo"', function(){
+			assert.equal('bobo', straitjacketed2(1, 2));
+		});
+	});
+
+
 	describe('#isJson(String was)', function(){
 		var goodJson = '{"e51":511,"e52":512,"e53":513}',
 			badJson = '{"e51:511,"e52":512,"e53":513}';

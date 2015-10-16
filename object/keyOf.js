@@ -6,9 +6,11 @@
  *	@return {String}			Key or null if no key was found
  */
 export default function keyOf(obj, value){
-    for(var key in obj)
-        if(Object.prototype.hasOwnProperty.call(obj, key) && obj[key] === value)
-            return key;
+	for(var key in obj){
+		if(Object.prototype.hasOwnProperty.call(obj, key) && obj[key] === value){
+			return key;
+		}
+	}
 
-    return null;
+	return null;
 }

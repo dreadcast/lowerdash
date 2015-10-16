@@ -9,8 +9,8 @@ import contains from 'lodash/collection/contains';
  *	@return {Boolean}			was is shit
  */
 export default function isShit(was){
-    if(isArray(was) && compact(was).length == 0)
-        return true;
+	if(isArray(was) && compact(was).length == 0)
+		return true;
 
-    return contains([null, 'null', undefined, '', false, 'false', 0, '0'], was);
+	return contains([null, 'null', undefined, '', false, 'false', 0, '0'], was);
 }

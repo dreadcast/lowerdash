@@ -1,4 +1,4 @@
-import arry from './../array/arry';
+import arry from './../array/arry.js';
 
 /**
  *	Return a wrapped function that will catch errors and return provided defaultValue or undefined
@@ -7,7 +7,7 @@ import arry from './../array/arry';
  *	@param {Mixed} [defaultValue]	Returned value if invoking wrapped function fails
  *	@return {Mixed} 				Function result or false
  */
-function straitjacket(fn, defaultValue){
+export default function straitjacket(fn, defaultValue){
     return function(){
         try {
             var args = arry(arguments);
